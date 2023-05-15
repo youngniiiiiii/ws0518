@@ -1,6 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<script>
+    let login = {
+        init: () => {
+            $('#login_btn').attr('disabled',true);
+            $('#pwd').keyup( () => {
+                let id = $("#id").val();
+                let pwd = $("#pwd").val();
+                if(id != '' && pwd != '') {
+                    $('#login_btn').attr('disabled',false);
+                };
+            });
+            $("#login_btn").click( () => {
+                login.send();
+            });
+        },
+        send: () => {
+            $("#login_form").attr({
+                'action':'/loginimpl',
+                'method':'post'
+            });
+            $("#login_form").submit();
+        }
+    }
+
+    $( ()=> {
+        login.init();
+    })
+</script>
+
+
+
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
         <main>
@@ -17,7 +48,7 @@
                                         <label for="id">Enter ID</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="pwd" type="pwd" name="pwd" placeholder="Enter PWD" />
+                                        <input class="form-control" id="pwd" type="password" name="pwd" placeholder="Enter PWD" />
                                         <label for="pwd">Enter Password</label>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
@@ -29,7 +60,7 @@
 
                             </div>
                             <div class="card-footer text-center py-3">
-                                <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                <div class="small"><a href="/register">Need an account? Sign up!</a></div>
                             </div>
                         </div>
                     </div>
