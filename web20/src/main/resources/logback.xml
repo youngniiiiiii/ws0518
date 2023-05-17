@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="LOGS_DIR" value="c://project/logs"/>
+    <!--    <property name="LOGS_DIR" value="c://project/logs"/>-->
     <!--                                    모든 로그에 대한 정보가 들어가는 폴더임 C드라이브 밑에다가 남기겠다-->
-
+    <property name="LOGS_DIR" value="/root/logs"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-<!--            <Pattern>[%d{MM-dd HH:mm:ss}][%thread] %-5level %logger{36} - %msg%n</Pattern>-->
+            <!--            <Pattern>[%d{MM-dd HH:mm:ss}][%thread] %-5level %logger{36} - %msg%n</Pattern>-->
             <Pattern>[%d{MM-dd HH:mm:ss}] %-5level %logger{36} - %msg%n</Pattern>
         </layout>
     </appender>
@@ -50,13 +50,13 @@
         <appender-ref ref="FILE2"/>
     </logger>
 
-    <logger name="jdbc" level="OFF" />
-	<logger name="jdbc.sqlonly" level="INFO" />
-	<logger name="jdbc.sqltiming" level="OFF" />
-	<logger name="jdbc.audit" level="OFF" />
-	<logger name="jdbc.resultset" level="OFF" />
-	<logger name="jdbc.resultsettable" level="INFO" />
-	<logger name="jdbc.connection" level="OFF" />
+    <logger name="jdbc" level="OFF"/>
+    <logger name="jdbc.sqlonly" level="INFO"/>
+    <logger name="jdbc.sqltiming" level="OFF"/>
+    <logger name="jdbc.audit" level="OFF"/>
+    <logger name="jdbc.resultset" level="OFF"/>
+    <logger name="jdbc.resultsettable" level="INFO"/>
+    <logger name="jdbc.connection" level="OFF"/>
 
     <!-- INFO(trace > debug > info > warn > error)  -->
 </configuration>
